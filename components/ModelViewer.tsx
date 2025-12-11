@@ -7,7 +7,21 @@ import * as THREE from 'three';
 import { useDropzone } from 'react-dropzone';
 
 // Augment JSX namespace to recognize R3F elements
+// Handling both global JSX and React module JSX to ensure compatibility with different TS/React versions
 declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      mesh: any;
+      meshStandardMaterial: any;
+      planeGeometry: any;
+      meshBasicMaterial: any;
+      torusKnotGeometry: any;
+      fog: any;
+    }
+  }
+}
+
+declare module 'react' {
   namespace JSX {
     interface IntrinsicElements {
       mesh: any;
