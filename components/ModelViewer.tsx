@@ -6,6 +6,20 @@ import { Rotate3D, Cpu, Image as ImageIcon, Upload } from 'lucide-react';
 import * as THREE from 'three';
 import { useDropzone } from 'react-dropzone';
 
+// Augment JSX namespace to recognize R3F elements
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      mesh: any;
+      meshStandardMaterial: any;
+      planeGeometry: any;
+      meshBasicMaterial: any;
+      torusKnotGeometry: any;
+      fog: any;
+    }
+  }
+}
+
 const Model = ({ url }: { url: string }) => {
   const geometry = useLoader(STLLoader, url) as THREE.BufferGeometry;
   if(geometry) { geometry.center(); geometry.computeVertexNormals(); }
