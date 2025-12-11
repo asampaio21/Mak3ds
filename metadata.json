@@ -1,0 +1,7 @@
+{
+  "name": "Mak3d",
+  "description": "Production-ready 3D printing service app with AI tools, 3D model analysis, and live support.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
